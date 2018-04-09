@@ -9,8 +9,6 @@ var btnText2 = document.createTextNode('Click for my name!');
 var btn4 = document.getElementById('button4');
 var ul = document.getElementById('friendList');
 
-var li = document.createElement('li');
-
 body.appendChild(btn);
 btn.appendChild(btnText);
 btn3.appendChild(btnText2);
@@ -46,10 +44,16 @@ btn3.addEventListener('click', function() {
 	body.appendChild(span);
 });
 
-function listFriends(i) {
-	var friends = ['Kalyn', 'Ned', 'Benny', 'Zack', 'Kristi', 'Stephen', 'Mary', 'Taft', 'Marshay', 'Brady'];
-	friendList.innerHTML = friendList.innerHTML + friends[i];
-}
+var friends = ['Kalyn', 'Ned', 'Benny', 'Zack', 'Kristi', 'Stephen', 'Mary', 'Taft', 'Marshay', 'Brady'];
+
+btn4.addEventListener('click', function listFriends() {
+	for (var i = 0; i < friends.length; i++) {
+		var li = document.createElement('li');
+		var liText = document.createTextNode(friends[i]);
+		li.appendChild(liText);
+		ul.appendChild(li);
+	}
+});
 
 function randomColor() {
 	var rcolor1 = Math.floor(Math.random() * 256);
